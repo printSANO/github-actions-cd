@@ -28,3 +28,4 @@ jobs:
             git clone https://github.com/printSANO/github-actions-cd.git
             cd github-actions-cd
             docker-compose up -d
+            rm -rf github-actions-cd
