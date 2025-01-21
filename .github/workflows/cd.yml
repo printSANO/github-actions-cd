@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deplt:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
           echo "Deployed to production"
       
       - name: Deploy to server
-        uses: appleboy/ssh-action@1.1.0
+        uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
