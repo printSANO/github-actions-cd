@@ -16,7 +16,7 @@ jobs:
       - name: Deploy
         run: |
           echo "Deploying to production"
-          echo "Deployed to production"
+          echo "Deployed to production ."
       
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.1.0
