@@ -1,0 +1,30 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deplt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Deploy
+        run: |
+          echo "Deploying to production"
+          echo "Deployed to production"
+      
+      - name: Deploy to server
+        uses: appleboy/ssh-action@1.1.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            git clone https://github.com/printSANO/github-actions-cd.git
+            cd github-actions-cd
+            docker-compose up -d
